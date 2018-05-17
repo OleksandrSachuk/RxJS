@@ -1,16 +1,15 @@
 const button = document.querySelector('.button');
 const label = document.querySelector('h4');
 
-const clickStream = Rx.Observable.fromEvent(button, 'click');
-const doubleClickStream = clickStream
-  .buffer(() => clickStream.throttle(250))
-  .map(arr => arr.length)
-  .filter(len => len === 2);
+const click$ = Rx.Observable.fromEvent(button, 'click');
 
-doubleClickStream.subscribe(x => console.log(x));
+const doubleClickStream = click$
+  .buffer(click$.debounceTime(250))
+  .map(a => a.length)
+  .filter(x => x === 2);
+
+doubleClickStream.subscribe(() => label.textContent = 'Double click!');
 
 doubleClickStream
-  .throttle(1000)
-  .subscribe(suggestion => {
-    label.textContent = '-';
-  });
+  .debounceTime(1000)
+  .subscribe(() => label.textContent = 'Clear');
