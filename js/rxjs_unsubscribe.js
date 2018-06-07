@@ -3,10 +3,8 @@ const source = Rx.Observable.create(observer => {
     observer.next(1);
   }, 1000);
 
-  observer.complete();
-
   // Any cleanup logic might go here
-  return function unsubscribe() {
+  return () => {
     console.log('unsubscribe');
     clearInterval(interval);
   };
@@ -18,4 +16,6 @@ const subscription = source.subscribe(
   e => console.log('error: ', e),
   () => console.log('complete'));
 
-subscription.unsubscribe();
+setTimeout(() => subscription.complete(), 2000);
+
+// setTimeout(() => subscription.unsubscribe(), 2000)
