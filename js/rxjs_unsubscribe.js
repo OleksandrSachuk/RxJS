@@ -19,3 +19,16 @@ const subscription = source.subscribe(
 setTimeout(() => subscription.complete(), 2000);
 
 // setTimeout(() => subscription.unsubscribe(), 2000)
+
+Rx.Observable.subscribe(
+  x => console.log('next: ', x),
+  e => console.log('error: ', e),
+  () => console.log('complete'),
+);
+
+Rx.Observable.subscribe({
+    next: x => console.log('next: ', x),
+    error: e => console.log('error: ', e),
+    complete: () => console.log('complete'),
+  },
+);
