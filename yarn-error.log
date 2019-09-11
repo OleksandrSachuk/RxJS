@@ -1,0 +1,34 @@
+Arguments: 
+  /Users/oleksandrsachuk/.nvm/versions/node/v12.7.0/bin/node /usr/local/Cellar/yarn/1.17.3/libexec/bin/yarn.js add webpack-cli --dev
+
+PATH: 
+  /Users/oleksandrsachuk/.nvm/versions/node/v12.7.0/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+
+Yarn version: 
+  1.17.3
+
+Node version: 
+  12.7.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: getaddrinfo ENOTFOUND registry.yarnpkg.com
+      at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:60:26)
+
+npm manifest: 
+  {
+    "name": "RxJS",
+    "version": "1.0.0",
+    "main": "index.js",
+    "repository": "git@github.com:OleksandrSachuk/RxJS.git",
+    "author": "Oleksandr Sachuk <oleksandr.sachuk@syngenta.com>",
+    "license": "MIT"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
